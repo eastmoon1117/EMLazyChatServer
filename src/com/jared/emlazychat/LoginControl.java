@@ -25,15 +25,15 @@ public class LoginControl {
 	
 	UserService					userService;
     
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8")
 	@ResponseBody
 	public String login(String account, String password) {
 		Map<String, Object> map = new HashMap<String, Object>();
 	    System.out.println("login:"+account+":"+password);
-		
 		//if (account == null || password == null) {
+
 		if (account == null || password == null 
-				|| (!account.equals("test")&&!password.equals("123"))) {
+				|| (!account.equals("test")) || (!password.equals("123"))) {
 			map.put("flag", false);
 			map.put("errorCode", LOGIN_ACCOUNT_MISS);
 			map.put("errorString", "用户不存在");
