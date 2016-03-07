@@ -41,6 +41,7 @@ public class LoginControl {
 			User user = new User();
 			user.setAccount(account);
 			user.setArea("hangzhou");
+			user.setSign("哈哈");
 		    user.setName("eastmoon");
 		    user.setSex(0);
 			user.setToken(UUID.randomUUID().toString());			
