@@ -1,12 +1,12 @@
-package com.jared.emlazychat;
+package com.jared.emlazychat.control;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-import com.jared.emlazychat.User;
-import com.jared.emlazychat.UserService;
-import com.jared.emlazychat.ClientAccount;
+import com.jared.emlazychat.pojo.User;
+import com.jared.emlazychat.service.UserService;
+import com.jared.emlazychat.vo.ClientAccount;
 
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +41,9 @@ public class LoginControl {
 			User user = new User();
 			user.setAccount(account);
 			user.setArea("hangzhou");
-			user.setSign("哈哈");
+			user.setSign("别驻足，梦想要不停追逐!");
 		    user.setName("eastmoon");
-		    user.setSex(0);
+		    user.setSex(2);
 			user.setToken(UUID.randomUUID().toString());			
 			map.put("flag", true);
 			map.put("data", ClientAccount.toAccount(user));

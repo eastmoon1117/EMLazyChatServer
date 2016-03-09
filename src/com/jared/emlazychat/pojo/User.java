@@ -1,4 +1,4 @@
-package com.jared.emlazychat;
+package com.jared.emlazychat.pojo;
 
 import java.sql.Timestamp;
 

@@ -1,4 +1,6 @@
-package com.jared.emlazychat;
+package com.jared.emlazychat.service;
+
+import com.jared.emlazychat.pojo.User;
 
 public interface UserService {
 

@@ -1,6 +1,6 @@
-package com.jared.emlazychat;
+package com.jared.emlazychat.vo;
 
-import com.jared.emlazychat.User;
+import com.jared.emlazychat.pojo.User;
 
 public class ClientAccount {
 
