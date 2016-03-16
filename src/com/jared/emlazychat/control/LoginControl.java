@@ -95,6 +95,7 @@ public class LoginControl {
     			userService.updateToken(user);
     			user = userService.findUserByAccount(account);
     			map.put("data", ClientAccount.toAccount(user));
+    		    System.out.println("addUser"+":"+user.getAccount()+":"+user.getPassword());
     		} else {
     			map.put("flag", false);
     			map.put("errorCode", REGISTER_ACCOUNT_EXIST);

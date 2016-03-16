@@ -24,6 +24,7 @@ public class UserServiceImpl implements UserService{
 		User user = new User();
 		user.setAccount(account);
 		user.setPassword(password);
+	    System.out.println("User addUser");
 		userDao.addUser(user);
 		return user;
 	}

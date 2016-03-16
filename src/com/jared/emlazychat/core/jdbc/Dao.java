@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
+import org.hibernate.FlushMode;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.omg.PortableServer.IdAssignmentPolicyOperations;
@@ -21,19 +22,27 @@ public class Dao<POJO> extends HibernateDaoSupport implements IDao<POJO> {
 
 	@Override
 	public Serializable save(POJO entity) {
+		Serializable id;
 		HibernateTemplate template = getHibernateTemplate();
-		return template.save(entity);
+		//template.setCheckWriteOperations(false);
+		template.getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO); 
+		id = template.save(entity);
+		template.flush();
+		return id;
 	}
 
 	@Override
 	public void update(POJO entity) {
 		HibernateTemplate template = getHibernateTemplate();
+		template.getSessionFactory().getCurrentSession().setFlushMode(FlushMode.AUTO); 
 		template.update(entity);
+		template.flush();
 	}
 
 	@Override
 	public void delete(Serializable id) {
 		HibernateTemplate template = getHibernateTemplate();
+		template.setCheckWriteOperations(false);
 		template.delete(findById(id));
 	}
 

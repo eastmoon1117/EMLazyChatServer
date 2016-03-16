@@ -17,8 +17,9 @@ public class UserDaoImpl extends BaseDaoSupport<User> implements UserDao{
 	
 	@Override
 	public void addUser(User user) {
+	    System.out.println("addUser");
 		Serializable id = save(user);
-		user.setId((String)id);
+		user.setId((String) id);
 	}
 	
 	@Override
