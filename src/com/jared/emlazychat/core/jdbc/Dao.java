@@ -7,8 +7,8 @@ import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
 import org.omg.PortableServer.IdAssignmentPolicyOperations;
-import org.springframework.orm.hibernate3.HibernateTemplate;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
 public class Dao<POJO> extends HibernateDaoSupport implements IDao<POJO> {
 	private Class<POJO>	clazz;
@@ -80,10 +80,9 @@ public class Dao<POJO> extends HibernateDaoSupport implements IDao<POJO> {
 
 	@Override
 	public POJO findOneByField(Class<POJO> clazz, String fieldName, Object fieldValue) {
+	    System.out.println("findOneByField");
 		List<POJO> list = findByField(clazz, fieldName, fieldValue);
 		if (list != null && list.size() > 0) { return list.get(0); }
 		return null;
 	}
-
-
 }

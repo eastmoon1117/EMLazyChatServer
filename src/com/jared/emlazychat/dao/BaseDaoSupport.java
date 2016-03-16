@@ -2,10 +2,15 @@ package com.jared.emlazychat.dao;
 
 import javax.annotation.Resource;
 
-//import com.jared.emlazychat.core.jdbc.Dao;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
-public class BaseDaoSupport {
+import com.jared.emlazychat.core.jdbc.Dao;
 
+public class BaseDaoSupport<POJO> extends Dao<POJO>{
+	
+	@Resource(name = "sessionFactory")
+	public void setFactory(SessionFactory sessionFactory) {
+		super.setSessionFactory(sessionFactory);
+	}
 }
