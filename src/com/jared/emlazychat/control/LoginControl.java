@@ -35,8 +35,7 @@ public class LoginControl {
 	    System.out.println("login:"+account+":"+password);
 		//if (account == null || password == null) {
 
-		if (account == null || password == null 
-				|| (!account.equals("test")) || (!password.equals("123"))) {
+		if (account == null || password == null) {
 			map.put("flag", false);
 			map.put("errorCode", LOGIN_ACCOUNT_MISS);
 			map.put("errorString", "用户不存在");
